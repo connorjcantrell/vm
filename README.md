@@ -5,13 +5,13 @@
 Simulating a physical computer by implementing a simple, register-based virtual machine in Go
 
 ## The Computer
-    - 20 bytes of memory
-    - 3 registers: A pointer counter and 2 general purpose registers
-    - 5 instructions
+- 20 bytes of memory
+- 3 registers: A pointer counter and 2 general purpose registers
+- 5 instructions
 
 ### Memory
-    - Simulated by a fixed sized array to model memory
-    - 25 byte capacity
+- Simulated by a fixed sized array to model memory
+- 25 byte capacity
 
 ```
 00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f 10 11 12 13
@@ -41,8 +41,8 @@ sub reg1 reg2       # Subtract reg2 from reg1 and store result into reg1
 ```
 
 ### Registers 
-    - 1 for the program counter
-    - 2 general purpose registers
+- 1 for the program counter
+- 2 general purpose registers
 
 
 Special thanks to invaluable lessons by Bradfield School of Computer Science
