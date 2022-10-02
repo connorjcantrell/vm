@@ -11,7 +11,7 @@ Simulating a physical computer by implementing a simple, register-based virtual 
 
 ### Memory
 - Simulated by a fixed sized array to model memory
-- 25 byte capacity
+- 20 byte capacity
 
 ```
 00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f 10 11 12 13
