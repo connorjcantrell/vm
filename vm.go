@@ -10,8 +10,8 @@ const SUB = 0x04
 const HALT = 0xff
 
 type VM struct {
-	registers [3]uint8
-	memory    [20]uint8
+	registers [3]uint
+	memory    [20]uint
 }
 
 // Load 20 byte array of memory into VM
@@ -19,7 +19,7 @@ type VM struct {
 // 00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f 10 11 12 13
 // __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
 // INSTRUCTIONS ---------------------------^ OUT-^ IN-1^ IN-2^
-func (vm *VM) Load(memory [20]uint8) {
+func (vm *VM) Load(memory [20]uint) {
 	vm.memory = memory
 }
 
@@ -81,7 +81,7 @@ func (vm *VM) Compute() {
 				// Each shift left ( << ) is a multiply by 2
 
 				Remove mask to select the lower 8 bits:
-				vm.memory[arg2+1]    : 1000 0001 0000 0000 : 256
+				vm.memory[arg2+1]    : 0000 0001 0000 0000 : 256
 				vm.memory[arg2+1]>>8 : 0000 0000 0000 0001 : 1
 			*/
 			vm.memory[arg2+1] = vm.registers[arg1] >> 8
@@ -105,7 +105,7 @@ func (vm *VM) String(message string) {
 }
 
 func main() {
-	var memory = [20]uint8{
+	var memory = [20]uint{
 		0x01, 0x01, 0x10, // 0x00: load A 0x10
 		0x01, 0x02, 0x12, // 0x03: load B 0x12
 		0x03, 0x01, 0x02, // 0x06: add A B
