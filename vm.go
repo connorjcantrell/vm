@@ -49,7 +49,7 @@ func (vm *VM) Compute() {
 				vm.memory[arg2+1]<<8 : 0000 0001 0000 0000
 				     vm.memory[arg2] : 0000 0000 XXXX XXXX
 				==========================================
-							       | : 0000 0001 XXXX XXXX
+				                   | : 0000 0001 XXXX XXXX
 			*/
 			vm.registers[arg1] = vm.memory[arg2+1]<<8 | vm.memory[arg2]
 		case STORE:
@@ -64,7 +64,7 @@ func (vm *VM) Compute() {
 				vm.memory[arg2] : XXXX XXXX XXXX XXXX
 				   (1 << 8) - 1 : 0000 0000 1111 1111
 				======================================
-							  & : 0000 0000 XXXX XXXX
+				              | : 0000 0001 XXXX XXXX
 			*/
 			vm.memory[arg2] = vm.registers[arg1] & ((1 << 8) - 1)
 			/*
